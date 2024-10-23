@@ -32,7 +32,7 @@ int	main(int argc, char **argv)
 {
 	int	i = 0;
 
-	if (argc > 1)
+	if (argc == 2)
 	{
 		while(argv[1][i])
 		{
@@ -50,3 +50,14 @@ int	main(int argc, char **argv)
 	}
 	write(1, "\n", 1);
 	return (0);
+}
+	/*
+PRZYKŁAD DZIAŁANIA................................
+argv[1][i] = (argv[1][i] - 'A' + 13) % 26 + 'A';
+Teraz zróbmy krok po kroku dla litery 'Z':
+
+argv[1][i] - 'A': To daje 25, ponieważ 'Z' - 'A' = 25 (pozycja 'Z' w alfabecie wynosi 25).
+25 + 13: Dodajemy 13, co daje 38.
+38 % 26: Modulo 26 pozwala nam wrócić do alfabetu. 38 % 26 = 12.
+12 + 'A': Dodajemy z powrotem wartość ASCII 'A' (czyli 65), co daje 12 + 65 = 77, co odpowiada literze 'M'.
+	*/

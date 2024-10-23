@@ -31,23 +31,25 @@ $>*/
 
 int	main(int ac, char **av)
 {
-	int	letter = 0;
-	int	repeat = 1;
+	int	i = 0;
+	int	repeat;
 
 	if (ac == 2)
 	{
-		while (av[1][letter])
+		while (av[1][i])
 		{
-			if (av[1][letter] >= 'a' && av[1][letter] <= 'z')
-				repeat += av[1][letter] - 'a';
-			else if (av[1][letter] >= 'A' && av[1][letter] <= 'Z')
-				repeat += av[1][letter] - 'A';
-			while (repeat)
+			if (av[1][i] >= 'a' && av[1][i] <= 'z')
+				repeat = av[1][i] - 'a' + 1;
+			else if (av[1][i] >= 'A' && av[1][i] <= 'Z')
+				repeat = av[1][i] - 'A' + 1;
+			else
+				repeat = 0;
+			while (repeat > 0)
 			{
-				write(1, &av[1][letter], 1);
+				write(1, &av[1][i], 1);
 				repeat--;
 			}
-			letter++;
+			i++;
 		}
 	}
 	write(1, "\n", 1);

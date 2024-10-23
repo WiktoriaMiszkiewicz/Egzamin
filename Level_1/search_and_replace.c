@@ -1,16 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   search_and_replace.c                               :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: wiktoria <wiktoria@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/14 18:40:32 by jaleman           #+#    #+#             */
-/*   Updated: 2024/10/11 00:24:52 by wiktoria         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-Expected files   : search_and_replace.c
+/*Expected files   : search_and_replace.c
 Allowed functions: write, exit
 --------------------------------------------------------------------------------
 
@@ -40,22 +28,22 @@ eNcOre Un ExEmPle Pas Facile a Ecrire $*/
 
 int		main(int argc, char *argv[])
 {
-	int		i;
-
+	int i = 0;
 	if (argc == 4)
 	{
-		if (!argv[2][1] && !argv[3][1])
+		while (argv[1][i] != '\0')
 		{
-			while (argv[1][i])
+			if (argv[2][1] == '\0' && argv[3][1] == '\0')
 			{
 				if (argv[1][i] == argv[2][0])
-					write(1, &argv[3][0], 1);
-				else
-					write(1, &argv[1][i], 1);
-				i += 1;
+					write(1,&argv[3][0],1);
+				else 
+					write(1,&argv[1][i],1);
 			}
+			i++;
 		}
 	}
-	write(1, "\n", 1);
+	write (1,"\n",1);
 	return (0);
 }
+// Ważne: argument 2 i 3 może mieć tylko jedną literkę !!
